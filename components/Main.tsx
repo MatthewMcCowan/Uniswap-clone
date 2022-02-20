@@ -3,7 +3,7 @@ import { RiSettings3Fill } from 'react-icons/ri'
 import { AiOutlineDown } from 'react-icons/ai'
 import ethLogo from '../assets/eth.png'
 import { TransactionContext } from '../context/TransactionContext'
-import { useContext } from 'react'
+import { MouseEvent, useContext } from 'react'
 import Modal from 'react-modal'
 import { useRouter } from 'next/router'
 import TransactionLoader from './TransactionLoader'
@@ -45,9 +45,9 @@ const Main = () => {
   const { formData, handleChange, sendTransaction } =
     useContext(TransactionContext)
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (event) => {
     const { addressTo, amount } = formData
-    e.preventDefault()
+    event.preventDefault()
     if (!addressTo || !amount) return
     sendTransaction()
   }
